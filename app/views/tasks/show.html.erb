@@ -1,0 +1,19 @@
+<h1><%= @task.title %></h1>
+
+<%= link_to sanitize('<i class="far fa-edit"></i> Edit this task'), edit_task_path, class: "btn btn-light clean-border", id: 'edit', role: 'button' %>
+
+<div class="container-custom details clean-border">
+  <p><%= @task.details %></p>
+</div>
+
+<div class="container-custom delimiter">
+  <p>
+    <% if @task.completed %>
+      <%= sanitize "<i class='far fa-check-square'></i> This task is completed" %>
+    <% else %>
+      <%= sanitize "<i class='far fa-square'></i> This task is not completed yet!" %>
+    <% end %>
+  </p>
+</div>
+
+<%= render 'return' %>

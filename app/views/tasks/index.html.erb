@@ -1,0 +1,14 @@
+<h1>My tasks</h1>
+
+<div class="container-custom delimiter">
+  <% @tasks.each do |task| %>
+    <li>
+      <%= sanitize (task.completed ? "<i class='far fa-check-square'></i>" : "<i class='far fa-square'></i>") %>
+      <%= link_to task.title, task_path(task) %> - <%= link_to sanitize('<i class="far fa-trash-alt"></i>'), task_path(task), method: :delete, data: { confirm: "Are you sure ?" } %>
+    </li>
+  <% end %>
+</div>
+
+<div class="container-custom">
+  <%= link_to sanitize('<i class="fas fa-plus"></i> Add a task'), new_task_path %>
+</div>
